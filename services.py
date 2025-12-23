@@ -4,28 +4,21 @@ from duckduckgo_search import DDGS
 from google import genai
 
 
-# ============================================================
-# 1. CONFIGURATION
-# ============================================================
+
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not GEMINI_API_KEY:
     raise RuntimeError("❌ GEMINI_API_KEY environment variable not set")
 
-# Initialize Gemini Client (NEW SDK)
+
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 
-# ============================================================
-# 2. MARKET DATA COLLECTION
-# ============================================================
+
 
 def get_market_data(sector: str) -> str:
-    """
-    Fetches recent market news and context for a given sector
-    using DuckDuckGo search.
-    """
+   
     try:
         query = f"{sector} sector trade opportunities India market analysis 2024"
 
@@ -44,15 +37,10 @@ def get_market_data(sector: str) -> str:
         return "Market data unavailable."
 
 
-# ============================================================
-# 3. GEMINI ANALYSIS
-# ============================================================
+
 
 def analyze_with_gemini(sector: str, context: str) -> str:
-    """
-    Generates a structured Trade Opportunity report
-    using Gemini LLM in Markdown format.
-    """
+
 
     prompt = f"""
 You are a Senior Market Analyst.
@@ -91,15 +79,10 @@ from ddgs import DDGS
 import ollama
 
 
-# ============================================================
-# 1. LIVE MARKET DATA (RETRIEVAL)
-# ============================================================
+
 
 def get_market_data(sector: str) -> str:
-    """
-    Fetch latest market-related information using DuckDuckGo.
-    Acts as the Retrieval step in RAG.
-    """
+ 
     try:
         query = f"{sector} sector trade opportunities India market analysis 2024"
 
@@ -118,9 +101,7 @@ def get_market_data(sector: str) -> str:
         return "No recent market data found."
 
 
-# ============================================================
-# 2. LOCAL LLM ANALYSIS (OLLAMA)
-# ============================================================
+
 
 def analyze_with_ollama(sector: str, context: str) -> str:
     """
@@ -175,3 +156,4 @@ STYLE:
     except Exception as e:
         print("❌ Ollama Error:", e)
         raise RuntimeError("Local AI analysis failed")
+

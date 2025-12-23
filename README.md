@@ -5,8 +5,8 @@ The system supports both cloud-based LLMs (Google Gemini) and local LLMs (Ollama
 
 📌 Features
 
-✅ Sector-based market analysis (/analyze/{sector})
-✅ Structured Markdown reports (savable as .md)
+✅ Sector-based market analysis 
+✅ Structured Markdown reports 
 ✅ Live market data retrieval (DuckDuckGo / DDGS)
 🌐 Google Gemini API (cloud)
 🖥️ Ollama (local, offline)
